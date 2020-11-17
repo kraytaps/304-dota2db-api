@@ -115,13 +115,68 @@ app.get('/sponsor', (req, res) => {
 app.get('/sponsor/add', (req, res) => {
 	const { name } = req.query;
 	const INSERT_SPONSOR = `
-		INSERT INTO sponsor (companyName)
+		INSERT IGNORE INTO sponsor (companyName)
 		VALUES ('${name}');
 	`;
-	db.query(INSERT_SPONSOR, (err, results) => {
+	db.query(INSERT_SPONSOR, (err, result) => {
 		if (err) throw err;
 		return res.send('Added new sponsor');
 	})
+})
+
+app.get('/sponsor/delete', (req, res) => {
+	const { key } = req.query;
+	const DELETE_SPONSOR = `
+		DELETE FROM sponsor
+		WHERE companyName='${key}';
+	`;
+	db.query(DELETE_SPONSOR, (err, result) => {
+		if (err) throw err;
+		return res.send(`Deleted sponsor with companyName ${key}`);
+	})
+})
+
+/**
+ * PRIZE
+ */
+
+ app.get('/prize', (req, res) => {
+	db.query(GetQ.GET_PRIZES, (err, result) => {
+		if (err) throw err;
+		return res.json({
+			data: result
+		})
+	})
+})
+
+app.get('/prize/add', (req, res) => {
+	const { name, value } = req.query;
+	const INSERT_PRIZE = `
+		INSERT IGNORE INTO prize (name, prizeValueUSD)
+		VALUES ('${name}', '${value}');
+	`;
+	db.query(INSERT_PRIZE, (err, result) => {
+		if (err) throw err;
+		return res.send('Added new sponsor');
+	})
+})
+
+app.get('/prize/delete', (req, res) => {
+	const { key } = req.query;
+	const DELETE_PRIZE = `
+		DELETE FROM prize
+		WHERE prizeID='${key}';
+	`;
+	const RESET_INCREMENT = `
+		ALTER TABLE prize AUTO_INCREMENT = ${key};
+	`;
+	db.query(DELETE_PRIZE, (err, result) => {
+		if (err) throw err;
+	})
+	db.query(RESET_INCREMENT, (err, result) => {
+		if (err) throw err;
+	})
+	return res.send(`Deleted prize with id ${key}`);
 })
 
 
