@@ -29,7 +29,7 @@ exports.CREATE_TEAM = `
 	CREATE TABLE IF NOT EXISTS team (
 		teamName varchar(255) NOT NULL,
 		countryOfOrigin varchar(255) NOT NULL,
-		prizeID INT NOT NULL,
+		prizeID INT,
 		PRIMARY KEY (teamName),
 		FOREIGN KEY (prizeID) REFERENCES Prize(prizeID)
 	);
@@ -64,4 +64,15 @@ exports.CREATE_CONSISTSOFMATCH = `
 		PRIMARY KEY (winningTeam, seriesID),
 		FOREIGN KEY(seriesID) REFERENCES seriesofmatchesplayedon(seriesID)
 	);
+`;
+
+exports.CREATE_TEAMMEMBER = `
+	CREATE TABLE teamMember (
+		memberID INT NOT NULL AUTO_INCREMENT,
+		firstName varchar(255),
+		lastName varchar(255),
+		nationality varchar(255),
+		teamName varchar(255) NOT NULL,
+		PRIMARY KEY (memberID),
+		FOREIGN KEY (teamName) REFERENCES team(teamName));
 `;

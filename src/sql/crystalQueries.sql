@@ -75,24 +75,24 @@ INSERT INTO prize (prize) VALUES ('85731');
 
  
 -- Inserts for team 
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('OG', 'Europe', '15603133');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Team Liquid', 'Europe', '4458038');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('PSG.LGD', 'China', '3086334');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Team Secret', 'Europe', '2057556');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Vici Gaming', 'China', '1200241');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Evil Geniuses', 'USA', '1200241');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Infamous', 'Peru', '857315');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Royal Never Give Up', 'China', '857315');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Mineski', 'Philippines', '685852');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Newbee', 'China', '685852');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('TNC Predator', 'Philippines', '685852');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Virtus.pro', 'Russia', '685852');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Natus Vincere', 'Ukraine', '514389');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Keen Gaming', 'China', '514389');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Fnatic', 'Malaysia', '514389');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Alliance', 'Sweden', '514389');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Ninjas in Pyjamas', 'Sweden', '85731');
-INSERT INTO team (teamName, countryOfOrigin, prizeID) VALUES ('Chaos Esports Club', 'United States', '85731'); 
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('OG', 'Europe');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Team Liquid', 'Europe');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('PSG.LGD', 'China');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Team Secret', 'Europe');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Vici Gaming', 'China');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Evil Geniuses', 'USA');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Infamous', 'Peru');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Royal Never Give Up', 'China');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Mineski', 'Philippines');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Newbee', 'China');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('TNC Predator', 'Philippines');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Virtus.pro', 'Russia');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Natus Vincere', 'Ukraine');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Keen Gaming', 'China');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Fnatic', 'Malaysia');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Alliance', 'Sweden');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Ninjas in Pyjamas', 'Sweden');
+INSERT INTO team (teamName, countryOfOrigin) VALUES ('Chaos Esports Club', 'United States'; 
 
 
 -- Inserts into Stage
