@@ -41,6 +41,25 @@ app.get('/setup/db', (req, res) => {
 	});
 });
 
+app.get('/setup/clearall', (req, res) => {
+	const CLEAR_ALL = `
+		DROP TABLE consistsofmatch;
+		DROP TABLE prizereceivedbyteam;
+		DROP TABLE seriesofmatchesplayedon;
+		DROP TABLE sponsor;
+		DROP TABLE stage;
+		DROP TABLE teammember;
+		DROP TABLE team;
+		DROP TABLE prize;
+	`;
+
+	db.query(CLEAR_ALL, (err, result) => {
+		if (err) throw err;
+		console.log(result);
+	})
+	res.send('Dropped all tables');
+})
+
 // Create prize table
 app.get('/setup/prize', (req, res) => {
 	db.query(CreateQ.CREATE_PRIZE, (err, result) => {
