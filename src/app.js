@@ -350,6 +350,39 @@ app.get('/team/topcountries', (req, res) => {
 	})
 })
 
+app.get('/team/firstandlast', (req, res) => {
+	const FIRST_AND_LAST = `
+		SELECT
+			p.prizeID,
+			t.teamName,
+			t.countryOfOrigin,
+			p.prizeValueUSD
+		FROM
+			prize p,
+			team t
+		WHERE
+			t.prizeID = p.prizeID AND (
+					p.prizeID = (SELECT
+						MIN(t.prizeID)
+						FROM
+						team t) 
+			OR
+			p.prizeID = (SELECT
+				MAX(t.prizeID)
+				FROM
+				team t)
+    )
+		GROUP BY
+    	p.prizeID
+	`;
+	db.query(FIRST_AND_LAST, (err, result) => {
+		if (err) throw err;
+		return res.json({
+			data: result
+		})
+	})
+})
+
 /**
  * TEAM MEMBER
  */
