@@ -199,6 +199,21 @@ FROM prize
 HAVING MIN(prizeID);
 
 -- NESTED AGGREGATION WITH GROUP BY
+SELECT p.prizeID, t.teamName, t.countryOfOrigin, p.prizeValueUSD
+FROM prize p, team t
+WHERE t.prizeID = p.prizeID 
+	AND (
+		p.prizeID = (SELECT
+				MIN(t.prizeID)
+				FROM
+				team t) 
+		OR
+		p.prizeID = (SELECT
+			MAX(t.prizeID)
+			FROM
+			team t)
+	)
+GROUP BY p.prizeID
 
 -- DIVISION
 SELECT tm.firstName, tm.lastName, tm.nationality, tm.teamName
